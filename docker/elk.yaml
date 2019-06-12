@@ -1,0 +1,40 @@
+version: '3'
+services:
+
+  elasticsearch:
+    build:
+      context: elasticsearch
+    container_name: elasticsearch
+    volumes:
+      - ./elasticsearch/config/elasticsearch.yml:/usr/share/elasticsearch/config/elasticsearch.yml
+    environment:
+      - cluster.name=docker-cluster
+      - bootstrap.memory_lock=true
+      - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
+    ulimits:
+      memlock:
+        soft: -1
+        hard: -1
+
+  logstash:
+    build:
+      context: logstash
+    container_name: logstash
+    volumes:
+      - ./logstash/config/logstash.yml:/usr/share/logstash/config/logstash.yml
+      - ./logstash/config/pipelines.yml:/usr/share/logstash/config/pipelines.yml
+      - ./logstash/pipeline:/usr/share/logstash/pipeline
+      - ./logstash/data:/data
+    links:
+      - elasticsearch
+
+  kibana:
+    build:
+      context: kibana
+    container_name: kibana
+    volumes:
+      - ./kibana/config:/usr/share/kibana/config
+    ports:
+      - 5601:5601
+    links:
+      - elasticsearch
