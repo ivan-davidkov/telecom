@@ -1,0 +1,235 @@
+{
+    "index_patterns" : "telecom*",
+    "aliases" : { },
+    "mappings" : {
+      "numeric_detection": true,
+      "dynamic_templates": [
+       {
+         "string_fields": {
+           "mapping": {
+             "type": "keyword"
+           },
+           "match_mapping_type": "string",
+           "match": "*"
+         }
+       }
+     ],
+      "properties" : {
+        "@timestamp" : {
+          "type" : "date"
+        },
+        "@version" : {
+          "type" : "text",
+          "fields" : {
+            "keyword" : {
+              "type" : "keyword",
+              "ignore_above" : 256
+            }
+          }
+        },
+        "Amount" : {
+          "type" : "float"
+        },
+        "CDR Call Type" : {
+          "type" : "text",
+          "fields" : {
+            "keyword" : {
+              "type" : "keyword",
+              "ignore_above" : 256
+            }
+          }
+        },
+        "CDR Service" : {
+          "type" : "text",
+          "fields" : {
+            "keyword" : {
+              "type" : "keyword",
+              "ignore_above" : 256
+            }
+          }
+        },
+        "CDR Tariff Code" : {
+          "type" : "text",
+          "fields" : {
+            "keyword" : {
+              "type" : "keyword",
+              "ignore_above" : 256
+            }
+          }
+        },
+        "Called Number" : {
+          "type" : "text",
+          "fields" : {
+            "keyword" : {
+              "type" : "keyword",
+              "ignore_above" : 256
+            }
+          }
+        },
+        "Caller Name" : {
+          "type" : "text",
+          "fields" : {
+            "keyword" : {
+              "type" : "keyword",
+              "ignore_above" : 256
+            }
+          }
+        },
+        "Circuit" : {
+          "type" : "text",
+          "fields" : {
+            "keyword" : {
+              "type" : "keyword",
+              "ignore_above" : 256
+            }
+          }
+        },
+        "Destination" : {
+          "type" : "text",
+          "fields" : {
+            "keyword" : {
+              "type" : "keyword",
+              "ignore_above" : 256
+            }
+          }
+        },
+        "Duration" : {
+          "type" : "float"
+        },
+        "Duration in Minutes" : {
+          "type" : "float"
+        },
+        "Institute" : {
+          "type" : "text",
+          "fields" : {
+            "keyword" : {
+              "type" : "keyword",
+              "ignore_above" : 256
+            }
+          }
+        },
+        "Invoice Period" : {
+          "type" : "text",
+          "fields" : {
+            "keyword" : {
+              "type" : "keyword",
+              "ignore_above" : 256
+            }
+          }
+        },
+        "Private" : {
+          "type" : "text",
+          "fields" : {
+            "keyword" : {
+              "type" : "keyword",
+              "ignore_above" : 256
+            }
+          }
+        },
+        "Provider" : {
+          "type" : "text",
+          "fields" : {
+            "keyword" : {
+              "type" : "keyword",
+              "ignore_above" : 256
+            }
+          }
+        },
+        "Roaming Country" : {
+          "type" : "text",
+          "fields" : {
+            "keyword" : {
+              "type" : "keyword",
+              "ignore_above" : 256
+            }
+          }
+        },
+        "Roaming Network" : {
+          "type" : "text",
+          "fields" : {
+            "keyword" : {
+              "type" : "keyword",
+              "ignore_above" : 256
+            }
+          }
+        },
+        "Roaming Zone" : {
+          "type" : "text",
+          "fields" : {
+            "keyword" : {
+              "type" : "keyword",
+              "ignore_above" : 256
+            }
+          }
+        },
+        "SIM Card" : {
+          "type" : "text",
+          "fields" : {
+            "keyword" : {
+              "type" : "keyword",
+              "ignore_above" : 256
+            }
+          }
+        },
+        "Service Class" : {
+          "type" : "text",
+          "fields" : {
+            "keyword" : {
+              "type" : "keyword",
+              "ignore_above" : 256
+            }
+          }
+        },
+        "Tax in Percentage" : {
+          "type" : "long"
+        },
+        "Unit" : {
+          "type" : "text",
+          "fields" : {
+            "keyword" : {
+              "type" : "keyword",
+              "ignore_above" : 256
+            }
+          }
+        },
+        "Volume" : {
+          "type" : "float"
+        },
+        "host" : {
+          "type" : "text",
+          "fields" : {
+            "keyword" : {
+              "type" : "keyword",
+              "ignore_above" : 256
+            }
+          }
+        },
+        "message" : {
+          "type" : "text",
+          "fields" : {
+            "keyword" : {
+              "type" : "keyword",
+              "ignore_above" : 256
+            }
+          }
+        },
+        "path" : {
+          "type" : "text",
+          "fields" : {
+            "keyword" : {
+              "type" : "keyword",
+              "ignore_above" : 256
+            }
+          }
+        },
+        "origin" : { "type" : "geo_point" },
+        "roaming" : { "type" : "geo_point" }
+      }
+    },
+    "settings" : {
+      "index" : {
+        "number_of_shards" : "1",
+        "number_of_replicas" : "1"
+    }
+  }
+}

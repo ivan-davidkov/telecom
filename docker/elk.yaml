@@ -23,10 +23,11 @@ services:
     volumes:
       - ./logstash/config/logstash.yml:/usr/share/logstash/config/logstash.yml
       - ./logstash/config/pipelines.yml:/usr/share/logstash/config/pipelines.yml
-      - ./logstash/pipeline:/usr/share/logstash/pipeline
+      - ./logstash/pipelines:/usr/share/logstash/pipelines
       - ./logstash/data:/data
     links:
       - elasticsearch
+    command: --config.reload.automatic
 
   kibana:
     build:
